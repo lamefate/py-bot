@@ -19,8 +19,8 @@ def subMenuKeyboard():
 
 
 # Настройки -> Оповощения -> subNotifyKeyboard()
-def subNotifyKeyboard(changedState : KeyboardButtonColor = KeyboardButtonColor.NEGATIVE):
+def subNotifyKeyboard(changedText = 'Посты: Off',changedState = KeyboardButtonColor.NEGATIVE):
     keyboard = Keyboard(one_time=False)
-    keyboard.add(Text('Выход постов', {"command": "post_notify"}), changedState)
+    keyboard.add(Text(f'{changedText}', {"command": "post_notify"}), changedState)
     return keyboard.get_json()
 

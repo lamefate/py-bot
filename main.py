@@ -10,7 +10,6 @@ Check()
 
 #logger.disable('vkbottle')
 
-
 bot : Bot = Bot(token=general.Token)
 
 
@@ -45,9 +44,9 @@ async def post_notify(message: Message):
     parser = Parser()
     old_notify_status = parser.updateNotifyList(message.peer_id)
     if old_notify_status == 'true':
-        await message.answer(f'Вы успешно изменили настройки уведомлений.', keyboard = subNotifyKeyboard(KeyboardButtonColor.NEGATIVE))
+        await message.answer(f'Вы успешно изменили настройки уведомлений.', keyboard = subNotifyKeyboard('Посты: Off', KeyboardButtonColor.NEGATIVE))
     elif old_notify_status == 'false':
-        await message.answer(f'Вы успешно изменили настройки уведомлений.', keyboard = subNotifyKeyboard(KeyboardButtonColor.POSITIVE))
+        await message.answer(f'Вы успешно изменили настройки уведомлений.', keyboard = subNotifyKeyboard('Посты: On', KeyboardButtonColor.POSITIVE))
 
 
 @bot.on.message()
